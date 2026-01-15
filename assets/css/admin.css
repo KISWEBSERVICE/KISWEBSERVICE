@@ -1,0 +1,281 @@
+/* Admin Styles for Client File Dashboard */
+
+.cfd-admin-wrap {
+    margin: 20px 20px 20px 0;
+}
+
+.cfd-admin-container {
+    max-width: 1400px;
+}
+
+.cfd-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.cfd-card h2 {
+    margin: 0 0 20px 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #23282d;
+}
+
+/* Form Styles */
+.cfd-form-group {
+    margin-bottom: 20px;
+}
+
+.cfd-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #23282d;
+}
+
+.cfd-form-group input[type="text"],
+.cfd-form-group input[type="file"],
+.cfd-form-group select,
+.cfd-form-group textarea {
+    width: 100%;
+    max-width: 600px;
+}
+
+.cfd-form-group .description {
+    margin: 5px 0 0 0;
+    color: #646970;
+    font-size: 13px;
+}
+
+.cfd-form-actions {
+    margin-top: 20px;
+}
+
+.cfd-form-actions .spinner {
+    float: none;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+/* User Selection */
+.cfd-user-select-wrapper {
+    max-width: 600px;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    background: #fff;
+}
+
+#cfd-user-search,
+#cfd-modal-user-search {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #dcdcde;
+    box-sizing: border-box;
+}
+
+.cfd-user-list {
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.cfd-user-item {
+    display: block;
+    padding: 8px;
+    margin: 2px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 3px;
+}
+
+.cfd-user-item:hover {
+    background-color: #f6f7f7;
+}
+
+.cfd-user-item input[type="checkbox"] {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.cfd-user-item span {
+    vertical-align: middle;
+}
+
+/* Files Table */
+.cfd-files-table {
+    margin-top: 15px;
+}
+
+.cfd-files-table th {
+    font-weight: 600;
+}
+
+.cfd-files-table td {
+    vertical-align: middle;
+}
+
+.cfd-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cfd-badge-universal {
+    background: #00a32a;
+    color: #fff;
+}
+
+.cfd-badge-specific {
+    background: #2271b1;
+    color: #fff;
+}
+
+/* Messages */
+.cfd-message {
+    padding: 12px 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+    border-left: 4px solid;
+}
+
+.cfd-message-success {
+    background: #edfaef;
+    border-color: #00a32a;
+    color: #00a32a;
+}
+
+.cfd-message-error {
+    background: #fcf0f1;
+    border-color: #d63638;
+    color: #d63638;
+}
+
+.cfd-no-files,
+.cfd-no-categories {
+    padding: 40px 20px;
+    text-align: center;
+    color: #646970;
+    font-size: 15px;
+}
+
+/* Modal Styles */
+.cfd-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s;
+}
+
+.cfd-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 0;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s;
+}
+
+.cfd-modal-content h2 {
+    margin: 0;
+    padding: 20px;
+    border-bottom: 1px solid #dcdcde;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cfd-modal-close {
+    color: #646970;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.cfd-modal-close:hover,
+.cfd-modal-close:focus {
+    color: #d63638;
+}
+
+.cfd-modal-body {
+    padding: 20px;
+}
+
+.cfd-modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #dcdcde;
+    background: #f6f7f7;
+    text-align: right;
+    border-radius: 0 0 4px 4px;
+}
+
+.cfd-modal-footer .button {
+    margin-left: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .cfd-admin-wrap {
+        margin: 10px;
+    }
+
+    .cfd-card {
+        padding: 15px;
+    }
+
+    .cfd-form-group input[type="text"],
+    .cfd-form-group input[type="file"],
+    .cfd-form-group select,
+    .cfd-form-group textarea {
+        max-width: 100%;
+    }
+
+    .cfd-user-select-wrapper {
+        max-width: 100%;
+    }
+
+    .cfd-files-table {
+        font-size: 13px;
+    }
+
+    .cfd-modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+}
