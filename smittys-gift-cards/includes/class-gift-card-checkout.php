@@ -160,9 +160,41 @@ class Smittys_Gift_Card_Checkout {
                 $expiration_date->modify("+{$expiration_months} months");
             }
 
-            // Get product variation name
+            // Get product variation name with attributes
             $product = $item->get_product();
-            $product_variation_name = $product->get_name();
+            $product_variation_name = $item->get_name(); // This includes variation attributes
+
+            // If empty or just parent name, build it manually
+            if (empty($product_variation_name) || ($variation_id > 0 && !strpos($product_variation_name, '-'))) {
+                $parent_name = get_the_title($product_id);
+
+                if ($variation_id > 0) {
+                    $variation = wc_get_product($variation_id);
+                    if ($variation) {
+                        $attributes = $variation->get_variation_attributes();
+                        $attribute_parts = array();
+
+                        foreach ($attributes as $attr_key => $attr_value) {
+                            // Clean up attribute name (remove 'attribute_pa_' or 'attribute_' prefix)
+                            $attr_name = str_replace(array('attribute_pa_', 'attribute_'), '', $attr_key);
+                            $attr_name = ucwords(str_replace('-', ' ', $attr_name));
+
+                            // Format attribute value
+                            $attr_value = ucwords(str_replace('-', ' ', $attr_value));
+
+                            $attribute_parts[] = $attr_value;
+                        }
+
+                        if (!empty($attribute_parts)) {
+                            $product_variation_name = $parent_name . ' - ' . implode(', ', $attribute_parts);
+                        } else {
+                            $product_variation_name = $parent_name;
+                        }
+                    }
+                } else {
+                    $product_variation_name = $parent_name;
+                }
+            }
 
             // Create multiple gift card records based on quantity
             $quantity = $item->get_quantity();
