@@ -1,0 +1,28 @@
+# Composer
+/vendor/
+composer.lock
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# WordPress
+wp-config.php
+.htaccess

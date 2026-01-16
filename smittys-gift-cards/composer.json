@@ -1,0 +1,15 @@
+{
+    "name": "smittys/gift-cards",
+    "description": "Digital gift card system for WooCommerce with email delivery and admin management",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=7.4",
+        "dompdf/dompdf": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Smittys\\GiftCards\\": "includes/"
+        }
+    }
+}
