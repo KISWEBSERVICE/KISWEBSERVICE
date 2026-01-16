@@ -160,39 +160,44 @@ class Smittys_Gift_Card_Checkout {
                 $expiration_date->modify("+{$expiration_months} months");
             }
 
-            // Get product variation name with attributes
-            $product = $item->get_product();
-            $product_variation_name = $item->get_name(); // This includes variation attributes
+            // Get product variation name with full attributes
+            $parent_name = get_the_title($product_id);
+            $product_variation_name = $parent_name;
 
-            // If empty or just parent name, build it manually
-            if (empty($product_variation_name) || ($variation_id > 0 && !strpos($product_variation_name, '-'))) {
-                $parent_name = get_the_title($product_id);
+            // Build full variation name with attributes
+            if ($variation_id > 0) {
+                $variation = wc_get_product($variation_id);
+                if ($variation && $variation->is_type('variation')) {
+                    $attributes = $variation->get_variation_attributes();
+                    $attribute_parts = array();
 
-                if ($variation_id > 0) {
-                    $variation = wc_get_product($variation_id);
-                    if ($variation) {
-                        $attributes = $variation->get_variation_attributes();
-                        $attribute_parts = array();
-
-                        foreach ($attributes as $attr_key => $attr_value) {
-                            // Clean up attribute name (remove 'attribute_pa_' or 'attribute_' prefix)
-                            $attr_name = str_replace(array('attribute_pa_', 'attribute_'), '', $attr_key);
-                            $attr_name = ucwords(str_replace('-', ' ', $attr_name));
-
-                            // Format attribute value
-                            $attr_value = ucwords(str_replace('-', ' ', $attr_value));
-
-                            $attribute_parts[] = $attr_value;
+                    foreach ($attributes as $attr_key => $attr_value) {
+                        if (empty($attr_value)) {
+                            continue;
                         }
 
-                        if (!empty($attribute_parts)) {
-                            $product_variation_name = $parent_name . ' - ' . implode(', ', $attribute_parts);
-                        } else {
-                            $product_variation_name = $parent_name;
+                        // Clean up attribute key (remove prefixes)
+                        $attr_name = str_replace(array('attribute_pa_', 'attribute_'), '', $attr_key);
+                        $attr_name = wc_attribute_label($attr_name, $variation);
+
+                        // Get term name for taxonomies or use raw value
+                        if (taxonomy_exists($attr_key)) {
+                            $term = get_term_by('slug', $attr_value, $attr_key);
+                            if ($term && !is_wp_error($term)) {
+                                $attr_value = $term->name;
+                            }
                         }
+
+                        // Format the value nicely
+                        $attr_value = ucwords(str_replace(array('-', '_'), ' ', $attr_value));
+
+                        $attribute_parts[] = $attr_value;
                     }
-                } else {
-                    $product_variation_name = $parent_name;
+
+                    // Add attributes to product name
+                    if (!empty($attribute_parts)) {
+                        $product_variation_name = $parent_name . ' - ' . implode(', ', $attribute_parts);
+                    }
                 }
             }
 
