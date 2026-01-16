@@ -107,93 +107,93 @@ class Smittys_Gift_Card_PDF {
                 }
                 .gift-card {
                     width: 90%;
-                    margin: 20px auto;
+                    margin: 10px auto;
                     border: 5px solid #E31E24;
-                    padding: 40px;
+                    padding: 25px;
                     text-align: center;
                     background: #ffffff;
                 }
                 .logo {
-                    margin-bottom: 30px;
+                    margin-bottom: 15px;
                 }
                 .logo img {
-                    max-width: 400px;
+                    max-width: 250px;
                     height: auto;
                 }
                 .logo-text {
-                    font-size: 72px;
+                    font-size: 48px;
                     font-weight: bold;
                     color: #E31E24;
-                    margin-bottom: 15px;
+                    margin-bottom: 10px;
                 }
                 .logo-swoosh {
-                    width: 300px;
-                    height: 15px;
+                    width: 200px;
+                    height: 8px;
                     background: linear-gradient(to right, #E31E24, #F47920);
-                    margin: 0 auto 30px;
+                    margin: 0 auto 15px;
                 }
                 h1 {
                     color: #1e3a5f;
-                    font-size: 48px;
-                    margin: 30px 0;
+                    font-size: 36px;
+                    margin: 15px 0;
                 }
                 .gift-details {
                     background: #f8f8f8;
                     border: 3px dashed #E31E24;
-                    padding: 30px;
-                    margin: 30px 0;
+                    padding: 20px;
+                    margin: 20px 0;
                 }
                 .recipient {
-                    font-size: 28px;
+                    font-size: 20px;
                     color: #333;
-                    margin: 15px 0;
+                    margin: 10px 0;
                 }
                 .product-name {
-                    font-size: 32px;
+                    font-size: 22px;
                     color: #1e3a5f;
                     font-weight: bold;
-                    margin: 25px 0;
+                    margin: 15px 0;
+                    line-height: 1.3;
                 }
                 .custom-message {
-                    margin: 30px 0;
-                    padding: 25px;
+                    margin: 15px 0;
+                    padding: 15px;
                     background: white;
-                    border-radius: 8px;
-                    font-size: 18px;
+                    font-size: 14px;
                     color: #666;
                     font-style: italic;
                 }
                 .sender {
                     color: #999;
-                    margin-top: 15px;
-                    font-size: 16px;
+                    margin-top: 8px;
+                    font-size: 12px;
                 }
                 .footer {
-                    margin-top: 40px;
-                    padding-top: 30px;
+                    margin-top: 20px;
+                    padding-top: 15px;
                     border-top: 3px solid #E31E24;
                 }
                 .date-info {
                     color: #666;
-                    font-size: 16px;
-                    margin: 8px 0;
+                    font-size: 13px;
+                    margin: 5px 0;
                 }
                 .expiration {
                     color: #E31E24;
-                    font-size: 18px;
+                    font-size: 14px;
                     font-weight: bold;
-                    margin: 15px 0;
+                    margin: 8px 0;
                 }
                 .redemption {
                     color: #1e3a5f;
-                    font-size: 22px;
+                    font-size: 16px;
                     font-weight: bold;
-                    margin-top: 30px;
+                    margin-top: 15px;
                 }
                 .contact {
                     color: #666;
-                    font-size: 16px;
-                    margin: 15px 0;
+                    font-size: 13px;
+                    margin: 10px 0;
                 }
             </style>
         </head>
