@@ -106,12 +106,10 @@ class Smittys_Gift_Card_PDF {
                     padding: 0;
                 }
                 .gift-card {
-                    width: 100%;
-                    max-width: 1000px;
-                    margin: 0 auto;
+                    width: 90%;
+                    margin: 20px auto;
                     border: 5px solid #E31E24;
-                    border-radius: 15px;
-                    padding: 60px;
+                    padding: 40px;
                     text-align: center;
                     background: #ffffff;
                 }
@@ -142,9 +140,8 @@ class Smittys_Gift_Card_PDF {
                 .gift-details {
                     background: #f8f8f8;
                     border: 3px dashed #E31E24;
-                    border-radius: 10px;
-                    padding: 40px;
-                    margin: 40px 0;
+                    padding: 30px;
+                    margin: 30px 0;
                 }
                 .recipient {
                     font-size: 28px;
@@ -249,6 +246,7 @@ class Smittys_Gift_Card_PDF {
 
                     <div class="contact">
                         Smitty's E-Bikes<br>
+                        Phone: (602) 320-6094<br>
                         Phone redemption only
                     </div>
                 </div>

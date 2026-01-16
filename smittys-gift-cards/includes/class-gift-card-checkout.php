@@ -160,44 +160,29 @@ class Smittys_Gift_Card_Checkout {
                 $expiration_date->modify("+{$expiration_months} months");
             }
 
-            // Get product variation name with full attributes
-            $parent_name = get_the_title($product_id);
-            $product_variation_name = $parent_name;
+            // Get product variation name - use order item name which includes variation details
+            $product_variation_name = $item->get_name();
 
-            // Build full variation name with attributes
-            if ($variation_id > 0) {
-                $variation = wc_get_product($variation_id);
-                if ($variation && $variation->is_type('variation')) {
-                    $attributes = $variation->get_variation_attributes();
-                    $attribute_parts = array();
+            // If the name doesn't include variation details, build it manually
+            if ($variation_id > 0 && strpos($product_variation_name, '-') === false) {
+                $parent_name = get_the_title($product_id);
+                $variation_text = array();
 
-                    foreach ($attributes as $attr_key => $attr_value) {
-                        if (empty($attr_value)) {
-                            continue;
-                        }
-
-                        // Clean up attribute key (remove prefixes)
-                        $attr_name = str_replace(array('attribute_pa_', 'attribute_'), '', $attr_key);
-                        $attr_name = wc_attribute_label($attr_name, $variation);
-
-                        // Get term name for taxonomies or use raw value
-                        if (taxonomy_exists($attr_key)) {
-                            $term = get_term_by('slug', $attr_value, $attr_key);
-                            if ($term && !is_wp_error($term)) {
-                                $attr_value = $term->name;
-                            }
-                        }
-
-                        // Format the value nicely
-                        $attr_value = ucwords(str_replace(array('-', '_'), ' ', $attr_value));
-
-                        $attribute_parts[] = $attr_value;
+                // Get variation meta data from order item
+                $item_meta = $item->get_meta_data();
+                foreach ($item_meta as $meta) {
+                    $meta_data = $meta->get_data();
+                    // Skip hidden meta fields (those starting with _)
+                    if (isset($meta_data['key']) && substr($meta_data['key'], 0, 1) !== '_') {
+                        $variation_text[] = $meta_data['value'];
                     }
+                }
 
-                    // Add attributes to product name
-                    if (!empty($attribute_parts)) {
-                        $product_variation_name = $parent_name . ' - ' . implode(', ', $attribute_parts);
-                    }
+                // If we found variation details, add them to the product name
+                if (!empty($variation_text)) {
+                    $product_variation_name = $parent_name . ' - ' . implode(', ', $variation_text);
+                } else {
+                    $product_variation_name = $parent_name;
                 }
             }
 

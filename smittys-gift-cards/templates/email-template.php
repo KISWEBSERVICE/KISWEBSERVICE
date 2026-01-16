@@ -45,15 +45,18 @@ if (!defined('ABSPATH')) {
                             <!-- Instructions -->
                             <div style="background-color: #f8f8f8; border-left: 4px solid #E31E24; padding: 20px; margin-top: 30px;">
                                 <h3 style="color: #1e3a5f; margin: 0 0 10px 0; font-size: 18px;">How to Redeem</h3>
-                                <p style="color: #666; margin: 0; font-size: 14px; line-height: 1.6;">
+                                <p style="color: #666; margin: 0 0 15px 0; font-size: 14px; line-height: 1.6;">
                                     This gift card can only be redeemed by phone. Please call us to book your reservation and
                                     mention that you have a gift card. Have this email or the attached PDF ready when you call.
+                                </p>
+                                <p style="color: #E31E24; margin: 0; font-size: 18px; font-weight: bold; text-align: center;">
+                                    Call: (602) 320-6094
                                 </p>
                             </div>
 
                             <div style="margin-top: 30px; text-align: center;">
                                 <p style="color: #999; font-size: 12px; margin: 10px 0;">
-                                    Questions? Contact Smitty's E-Bikes
+                                    Questions? Contact Smitty's E-Bikes at (602) 320-6094
                                 </p>
                             </div>
                         </td>

@@ -155,6 +155,7 @@ class Smittys_Gift_Card_Email {
 
                 <p style="color: #666; font-size: 14px; margin: 10px 0;">
                     Smitty's E-Bikes<br>
+                    Phone: (602) 320-6094<br>
                     Phone redemption only
                 </p>
             </div>
