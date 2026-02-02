@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room35 Client Hub - Plugin Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: #000;
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 3px solid #000;
+            padding-bottom: 20px;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.2rem;
+        }
+        p {
+            margin: 1em 0;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: -10px;
+            margin-bottom: 40px;
+        }
+        .cover-info {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: #f5f5f5;
+        }
+        .cover-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .toc {
+            background: #fafafa;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .toc li:last-child {
+            border-bottom: none;
+        }
+        .toc a {
+            color: #000;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        th {
+            background: #000;
+            color: #fff;
+            font-weight: 500;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .info-box {
+            background: #e8f4fc;
+            border-left: 4px solid #2563eb;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        .info-box strong {
+            color: #1d4ed8;
+        }
+        .warning-box {
+            background: #fef3cd;
+            border-left: 4px solid #f59e0b;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        .warning-box strong {
+            color: #b45309;
+        }
+        .code-box {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .code-box h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        ul, ol {
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            pre {
+                white-space: pre-wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Room35 Client Hub</h1>
+    <p class="subtitle">Technical Documentation & Reference</p>
+
+    <div class="cover-info">
+        <p><strong>Version 1.0.0</strong></p>
+        <p>WordPress Plugin Documentation</p>
+        <p>Last Updated: February 2026</p>
+    </div>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#overview">1. Plugin Overview</a></li>
+            <li><a href="#installation">2. Installation</a></li>
+            <li><a href="#shortcodes">3. Shortcodes Reference</a></li>
+            <li><a href="#user-roles">4. User Roles & Capabilities</a></li>
+            <li><a href="#file-storage">5. File Storage & Security</a></li>
+            <li><a href="#database">6. Database Structure</a></li>
+            <li><a href="#hooks">7. Actions & Filters</a></li>
+            <li><a href="#troubleshooting">8. Troubleshooting</a></li>
+            <li><a href="#changelog">9. Changelog</a></li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="overview">1. Plugin Overview</h2>
+
+    <h3>Description</h3>
+    <p>Room35 Client Hub is a secure file management plugin that enables bidirectional file sharing between administrators and clients. It provides a branded client portal with modern design aesthetics.</p>
+
+    <h3>Key Features</h3>
+    <ul>
+        <li>Secure file uploads and downloads</li>
+        <li>Client-specific and global file assignments</li>
+        <li>Modern frontend dashboard via shortcode</li>
+        <li>Email notifications for file activities</li>
+        <li>Custom "Client" user role</li>
+        <li>Protected file storage with PHP-based serving</li>
+        <li>Responsive black/white design with Poppins font</li>
+    </ul>
+
+    <h3>System Requirements</h3>
+    <table>
+        <tr>
+            <th>Requirement</th>
+            <th>Minimum</th>
+            <th>Recommended</th>
+        </tr>
+        <tr>
+            <td>WordPress</td>
+            <td>5.8+</td>
+            <td>6.0+</td>
+        </tr>
+        <tr>
+            <td>PHP</td>
+            <td>7.4+</td>
+            <td>8.0+</td>
+        </tr>
+        <tr>
+            <td>MySQL</td>
+            <td>5.7+</td>
+            <td>8.0+</td>
+        </tr>
+        <tr>
+            <td>Memory Limit</td>
+            <td>64MB</td>
+            <td>128MB+</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 id="installation">2. Installation</h2>
+
+    <h3>Standard Installation</h3>
+    <ol>
+        <li>Upload the <code>room35-client-hub</code> folder to <code>/wp-content/plugins/</code></li>
+        <li>Activate the plugin through the WordPress admin "Plugins" menu</li>
+        <li>The plugin will automatically create required database tables and the client dashboard page</li>
+    </ol>
+
+    <h3>What Happens on Activation</h3>
+    <p>When activated, the plugin:</p>
+    <ul>
+        <li>Creates two database tables (<code>wp_r35_hub_files</code> and <code>wp_r35_hub_download_log</code>)</li>
+        <li>Creates a protected upload directory at <code>wp-content/uploads/room35-client-files/</code></li>
+        <li>Adds <code>.htaccess</code> to block direct file access</li>
+        <li>Creates the "Client" user role</li>
+        <li>Creates a "Client Dashboard" page with the shortcode</li>
+        <li>Sets default plugin options</li>
+    </ul>
+
+    <h3>Uninstallation</h3>
+    <p>The plugin supports clean uninstallation. To remove all data:</p>
+    <ol>
+        <li>Go to <strong>Client Hub → Settings</strong></li>
+        <li>Enable "Delete data on uninstall" option</li>
+        <li>Deactivate and delete the plugin</li>
+    </ol>
+
+    <div class="warning-box">
+        <strong>Warning:</strong> Enabling "Delete data on uninstall" will permanently remove all files and database records when the plugin is deleted.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="shortcodes">3. Shortcodes Reference</h2>
+
+    <h3>Main Shortcode</h3>
+    <div class="code-box">
+        <h4>Basic Usage</h4>
+        <pre><code>[room35_client_hub]</code></pre>
+    </div>
+
+    <p>This shortcode displays the complete client dashboard including:</p>
+    <ul>
+        <li>My Files tab (files shared with the logged-in user)</li>
+        <li>General Documents tab (global files)</li>
+        <li>Upload File tab (client file upload form)</li>
+        <li>My Uploads tab (files the client has uploaded)</li>
+    </ul>
+
+    <h3>Shortcode Attributes</h3>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>show_upload</code></td>
+            <td>string</td>
+            <td>"true"</td>
+            <td>Show/hide the file upload form</td>
+        </tr>
+        <tr>
+            <td><code>show_global</code></td>
+            <td>string</td>
+            <td>"true"</td>
+            <td>Show/hide the global files tab</td>
+        </tr>
+    </table>
+
+    <h3>Shortcode Examples</h3>
+
+    <div class="code-box">
+        <h4>Full Dashboard (Default)</h4>
+        <pre><code>[room35_client_hub]</code></pre>
+        <p>Shows all tabs: My Files, General Documents, Upload, My Uploads</p>
+    </div>
+
+    <div class="code-box">
+        <h4>View Only (No Upload)</h4>
+        <pre><code>[room35_client_hub show_upload="false"]</code></pre>
+        <p>Hides the upload form - clients can only view and download files</p>
+    </div>
+
+    <div class="code-box">
+        <h4>Personal Files Only</h4>
+        <pre><code>[room35_client_hub show_global="false"]</code></pre>
+        <p>Hides the global files tab - shows only files assigned to specific client</p>
+    </div>
+
+    <div class="code-box">
+        <h4>Minimal View</h4>
+        <pre><code>[room35_client_hub show_upload="false" show_global="false"]</code></pre>
+        <p>Shows only personal files assigned to the client - no global files, no upload</p>
+    </div>
+
+    <h3>Login Behavior</h3>
+    <p>If a user is not logged in, the shortcode displays a login form instead of the dashboard. Features:</p>
+    <ul>
+        <li>Username/email and password fields</li>
+        <li>"Remember me" checkbox</li>
+        <li>Forgot password link</li>
+        <li>Registration link (if WordPress registration is enabled)</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2 id="user-roles">4. User Roles & Capabilities</h2>
+
+    <h3>Client Role</h3>
+    <p>The plugin creates a custom "Client" role with minimal capabilities:</p>
+
+    <table>
+        <tr>
+            <th>Capability</th>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>read</code></td>
+            <td>true</td>
+            <td>Basic access to view content</td>
+        </tr>
+        <tr>
+            <td><code>upload_files</code></td>
+            <td>false</td>
+            <td>Cannot upload via Media Library (uses custom system)</td>
+        </tr>
+    </table>
+
+    <h3>Auto-Registration</h3>
+    <p>New user registrations are automatically assigned the "Client" role, unless they already have administrator capabilities.</p>
+
+    <div class="info-box">
+        <strong>Note:</strong> The "Client" role is named <code>r35_client</code> internally to avoid conflicts with other plugins.
+    </div>
+
+    <h3>Access Control</h3>
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>Administrator</th>
+            <th>Client</th>
+        </tr>
+        <tr>
+            <td>Access Admin Dashboard</td>
+            <td>✓</td>
+            <td>✗</td>
+        </tr>
+        <tr>
+            <td>Upload files for clients</td>
+            <td>✓</td>
+            <td>✗</td>
+        </tr>
+        <tr>
+            <td>Upload global files</td>
+            <td>✓</td>
+            <td>✗</td>
+        </tr>
+        <tr>
+            <td>View all files</td>
+            <td>✓</td>
+            <td>✗</td>
+        </tr>
+        <tr>
+            <td>Delete any file</td>
+            <td>✓</td>
+            <td>✗</td>
+        </tr>
+        <tr>
+            <td>View own files</td>
+            <td>✓</td>
+            <td>✓</td>
+        </tr>
+        <tr>
+            <td>View global files</td>
+            <td>✓</td>
+            <td>✓</td>
+        </tr>
+        <tr>
+            <td>Upload files (via frontend)</td>
+            <td>✓</td>
+            <td>✓</td>
+        </tr>
+        <tr>
+            <td>Download assigned files</td>
+            <td>✓</td>
+            <td>✓</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 id="file-storage">5. File Storage & Security</h2>
+
+    <h3>File Location</h3>
+    <p>All uploaded files are stored in:</p>
+    <pre><code>wp-content/uploads/room35-client-files/</code></pre>
+
+    <h3>Directory Structure</h3>
+    <pre><code>room35-client-files/
+├── .htaccess          # Blocks all direct access
+├── index.php          # Prevents directory listing
+├── global/            # Global files
+│   └── index.php
+├── johndoe/           # Files for user "johndoe"
+│   └── index.php
+└── janesmith/         # Files for user "janesmith"
+    └── index.php</code></pre>
+
+    <h3>Security Measures</h3>
+
+    <h4>1. Direct Access Protection</h4>
+    <p>The <code>.htaccess</code> file denies all direct HTTP access:</p>
+    <pre><code># Room35 Client Hub - Deny direct access
+Order deny,allow
+Deny from all
+
+&lt;FilesMatch ".*"&gt;
+    Order Allow,Deny
+    Deny from all
+&lt;/FilesMatch&gt;</code></pre>
+
+    <h4>2. PHP-Based File Serving</h4>
+    <p>Files are served through a secure PHP endpoint:</p>
+    <pre><code>https://yoursite.com/r35-download/{file_id}-{action}/</code></pre>
+    <p>Where <code>action</code> is either <code>view</code> or <code>download</code>.</p>
+
+    <h4>3. Permission Checks</h4>
+    <p>Before serving any file, the system verifies:</p>
+    <ul>
+        <li>User is logged in</li>
+        <li>User has permission to access the file (owner, assigned client, or admin)</li>
+        <li>File exists and is active (not deleted)</li>
+    </ul>
+
+    <h4>4. Upload Validation</h4>
+    <p>All uploads are validated for:</p>
+    <ul>
+        <li>File size (max 24MB by default)</li>
+        <li>MIME type verification (actual file content, not just extension)</li>
+        <li>Extension matching MIME type</li>
+        <li>Path traversal prevention</li>
+    </ul>
+
+    <h3>Allowed File Types</h3>
+    <table>
+        <tr>
+            <th>MIME Type</th>
+            <th>Extension</th>
+        </tr>
+        <tr>
+            <td>application/pdf</td>
+            <td>.pdf</td>
+        </tr>
+        <tr>
+            <td>application/msword</td>
+            <td>.doc</td>
+        </tr>
+        <tr>
+            <td>application/vnd.openxmlformats-officedocument.wordprocessingml.document</td>
+            <td>.docx</td>
+        </tr>
+        <tr>
+            <td>application/vnd.ms-excel</td>
+            <td>.xls</td>
+        </tr>
+        <tr>
+            <td>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</td>
+            <td>.xlsx</td>
+        </tr>
+        <tr>
+            <td>image/jpeg</td>
+            <td>.jpg, .jpeg</td>
+        </tr>
+        <tr>
+            <td>image/png</td>
+            <td>.png</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 id="database">6. Database Structure</h2>
+
+    <h3>Files Table</h3>
+    <p><code>wp_r35_hub_files</code></p>
+
+    <table>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>BIGINT(20)</td>
+            <td>Primary key, auto-increment</td>
+        </tr>
+        <tr>
+            <td>file_name</td>
+            <td>VARCHAR(255)</td>
+            <td>Sanitized filename on disk</td>
+        </tr>
+        <tr>
+            <td>original_name</td>
+            <td>VARCHAR(255)</td>
+            <td>Original filename as uploaded</td>
+        </tr>
+        <tr>
+            <td>file_path</td>
+            <td>VARCHAR(500)</td>
+            <td>Relative path from uploads directory</td>
+        </tr>
+        <tr>
+            <td>file_type</td>
+            <td>VARCHAR(100)</td>
+            <td>MIME type</td>
+        </tr>
+        <tr>
+            <td>file_size</td>
+            <td>BIGINT(20)</td>
+            <td>Size in bytes</td>
+        </tr>
+        <tr>
+            <td>file_hash</td>
+            <td>VARCHAR(64)</td>
+            <td>SHA256 hash for integrity</td>
+        </tr>
+        <tr>
+            <td>uploaded_by</td>
+            <td>BIGINT(20)</td>
+            <td>User ID of uploader</td>
+        </tr>
+        <tr>
+            <td>assigned_to</td>
+            <td>BIGINT(20)</td>
+            <td>User ID of assigned client (NULL for global)</td>
+        </tr>
+        <tr>
+            <td>is_global</td>
+            <td>TINYINT(1)</td>
+            <td>1 = visible to all clients</td>
+        </tr>
+        <tr>
+            <td>upload_source</td>
+            <td>ENUM</td>
+            <td>'admin' or 'client'</td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>ENUM</td>
+            <td>'active' or 'deleted'</td>
+        </tr>
+        <tr>
+            <td>download_count</td>
+            <td>INT(11)</td>
+            <td>Number of downloads</td>
+        </tr>
+        <tr>
+            <td>created_at</td>
+            <td>DATETIME</td>
+            <td>Upload timestamp</td>
+        </tr>
+        <tr>
+            <td>updated_at</td>
+            <td>DATETIME</td>
+            <td>Last modified timestamp</td>
+        </tr>
+    </table>
+
+    <h3>Download Log Table</h3>
+    <p><code>wp_r35_hub_download_log</code></p>
+
+    <table>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>BIGINT(20)</td>
+            <td>Primary key, auto-increment</td>
+        </tr>
+        <tr>
+            <td>file_id</td>
+            <td>BIGINT(20)</td>
+            <td>Reference to files table</td>
+        </tr>
+        <tr>
+            <td>user_id</td>
+            <td>BIGINT(20)</td>
+            <td>User who downloaded</td>
+        </tr>
+        <tr>
+            <td>ip_address</td>
+            <td>VARCHAR(45)</td>
+            <td>Client IP address</td>
+        </tr>
+        <tr>
+            <td>user_agent</td>
+            <td>VARCHAR(500)</td>
+            <td>Browser user agent</td>
+        </tr>
+        <tr>
+            <td>downloaded_at</td>
+            <td>DATETIME</td>
+            <td>Download timestamp</td>
+        </tr>
+    </table>
+
+    <h3>Options</h3>
+    <p>The plugin stores settings in <code>wp_options</code>:</p>
+    <table>
+        <tr>
+            <th>Option Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>r35_hub_settings</code></td>
+            <td>Plugin settings array</td>
+        </tr>
+        <tr>
+            <td><code>r35_hub_db_version</code></td>
+            <td>Database schema version</td>
+        </tr>
+        <tr>
+            <td><code>r35_hub_dashboard_page_id</code></td>
+            <td>ID of auto-created dashboard page</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 id="hooks">7. Actions & Filters</h2>
+
+    <h3>Available Actions</h3>
+    <p>The plugin uses standard WordPress AJAX actions:</p>
+
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>wp_ajax_r35_admin_upload</code></td>
+            <td>Admin file upload handler</td>
+        </tr>
+        <tr>
+            <td><code>wp_ajax_r35_admin_delete</code></td>
+            <td>Admin file delete handler</td>
+        </tr>
+        <tr>
+            <td><code>wp_ajax_r35_client_upload</code></td>
+            <td>Client file upload handler</td>
+        </tr>
+        <tr>
+            <td><code>wp_ajax_r35_get_files</code></td>
+            <td>Get files list (admin)</td>
+        </tr>
+    </table>
+
+    <h3>User Registration Hook</h3>
+    <p>New users are auto-assigned the Client role via:</p>
+    <pre><code>add_action('user_register', [R35_Hub_User_Role::class, 'assign_client_role_on_register']);</code></pre>
+
+    <div class="page-break"></div>
+
+    <h2 id="troubleshooting">8. Troubleshooting</h2>
+
+    <h3>Common Issues</h3>
+
+    <h4>Files not uploading</h4>
+    <ul>
+        <li>Check PHP <code>upload_max_filesize</code> in php.ini (should be ≥24M)</li>
+        <li>Check PHP <code>post_max_size</code> in php.ini (should be ≥25M)</li>
+        <li>Verify the uploads directory is writable</li>
+        <li>Check for JavaScript errors in browser console</li>
+    </ul>
+
+    <h4>Direct file URLs not working</h4>
+    <ul>
+        <li>Ensure mod_rewrite is enabled (Apache)</li>
+        <li>Flush permalinks: Settings → Permalinks → Save</li>
+        <li>For NGINX, add rewrite rules manually</li>
+    </ul>
+
+    <h4>Emails not sending</h4>
+    <ul>
+        <li>Verify WordPress can send emails (test with other plugins)</li>
+        <li>Check spam folder</li>
+        <li>Consider using an SMTP plugin for reliable delivery</li>
+    </ul>
+
+    <h4>Dashboard page blank</h4>
+    <ul>
+        <li>Check for PHP errors in debug.log</li>
+        <li>Verify the shortcode is correctly placed: <code>[room35_client_hub]</code></li>
+        <li>Disable other plugins to check for conflicts</li>
+    </ul>
+
+    <h3>NGINX Configuration</h3>
+    <p>If using NGINX, add this to your server block:</p>
+    <pre><code># Block direct access to client files
+location ^~ /wp-content/uploads/room35-client-files/ {
+    deny all;
+    return 403;
+}
+
+# Rewrite for secure downloads
+location /r35-download/ {
+    rewrite ^/r35-download/(.*)$ /index.php?r35-download=$1 last;
+}</code></pre>
+
+    <div class="page-break"></div>
+
+    <h2 id="changelog">9. Changelog</h2>
+
+    <h3>Version 1.0.0 (February 2026)</h3>
+    <ul>
+        <li>Initial release</li>
+        <li>Admin file management dashboard</li>
+        <li>Client-specific file assignments</li>
+        <li>Global file support</li>
+        <li>Secure file storage and serving</li>
+        <li>Email notifications</li>
+        <li>Frontend client dashboard with shortcode</li>
+        <li>Custom "Client" user role</li>
+        <li>Responsive design with Poppins font</li>
+    </ul>
+
+    <hr style="margin: 40px 0;">
+
+    <h2>Quick Reference Card</h2>
+
+    <table>
+        <tr>
+            <th colspan="2" style="text-align: center; background: #333;">Shortcode Reference</th>
+        </tr>
+        <tr>
+            <td><code>[room35_client_hub]</code></td>
+            <td>Full client dashboard</td>
+        </tr>
+        <tr>
+            <td><code>[room35_client_hub show_upload="false"]</code></td>
+            <td>Dashboard without upload form</td>
+        </tr>
+        <tr>
+            <td><code>[room35_client_hub show_global="false"]</code></td>
+            <td>Dashboard without global files</td>
+        </tr>
+        <tr>
+            <th colspan="2" style="text-align: center; background: #333;">File Limits</th>
+        </tr>
+        <tr>
+            <td>Maximum Size</td>
+            <td>24 MB (configurable)</td>
+        </tr>
+        <tr>
+            <td>Allowed Types</td>
+            <td>PDF, DOC, DOCX, XLS, XLSX, JPG, PNG</td>
+        </tr>
+        <tr>
+            <th colspan="2" style="text-align: center; background: #333;">File Locations</th>
+        </tr>
+        <tr>
+            <td>Plugin Files</td>
+            <td><code>/wp-content/plugins/room35-client-hub/</code></td>
+        </tr>
+        <tr>
+            <td>Uploaded Files</td>
+            <td><code>/wp-content/uploads/room35-client-files/</code></td>
+        </tr>
+        <tr>
+            <th colspan="2" style="text-align: center; background: #333;">Admin Pages</th>
+        </tr>
+        <tr>
+            <td>Dashboard</td>
+            <td><code>/wp-admin/admin.php?page=r35-hub-dashboard</code></td>
+        </tr>
+        <tr>
+            <td>All Files</td>
+            <td><code>/wp-admin/admin.php?page=r35-hub-files</code></td>
+        </tr>
+        <tr>
+            <td>Upload</td>
+            <td><code>/wp-admin/admin.php?page=r35-hub-upload</code></td>
+        </tr>
+        <tr>
+            <td>Client Files</td>
+            <td><code>/wp-admin/admin.php?page=r35-hub-client-files</code></td>
+        </tr>
+        <tr>
+            <td>Settings</td>
+            <td><code>/wp-admin/admin.php?page=r35-hub-settings</code></td>
+        </tr>
+    </table>
+
+    <hr style="margin: 40px 0;">
+
+    <p style="text-align: center; color: #888;">
+        <strong>Room35 Client Hub v1.0.0</strong><br>
+        Technical Documentation<br>
+        © Room Thirty Five
+    </p>
+</body>
+</html>

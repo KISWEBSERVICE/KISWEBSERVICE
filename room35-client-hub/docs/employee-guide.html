@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room35 Client Hub - Employee Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: #000;
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: 3px solid #000;
+            padding-bottom: 20px;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.2rem;
+        }
+        p {
+            margin: 1em 0;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: -10px;
+            margin-bottom: 40px;
+        }
+        .cover-info {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: #f5f5f5;
+        }
+        .cover-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .toc {
+            background: #fafafa;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+        }
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .toc li:last-child {
+            border-bottom: none;
+        }
+        .toc a {
+            color: #000;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .step-box {
+            background: #f9f9f9;
+            border-left: 4px solid #000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .tip-box {
+            background: #e8f8ed;
+            border-left: 4px solid #16a34a;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        .tip-box strong {
+            color: #16a34a;
+        }
+        .warning-box {
+            background: #fef3cd;
+            border-left: 4px solid #f59e0b;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        .warning-box strong {
+            color: #b45309;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #e0e0e0;
+            margin: 15px 0;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        th {
+            background: #000;
+            color: #fff;
+            font-weight: 500;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Room35 Client Hub</h1>
+    <p class="subtitle">Employee Training Guide</p>
+
+    <div class="cover-info">
+        <p><strong>Version 1.0</strong></p>
+        <p>Room Thirty Five</p>
+        <p>For Internal Use Only</p>
+    </div>
+
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#introduction">1. Introduction</a></li>
+            <li><a href="#accessing">2. Accessing the Client Hub</a></li>
+            <li><a href="#dashboard">3. Understanding the Dashboard</a></li>
+            <li><a href="#uploading">4. Uploading Files for Clients</a></li>
+            <li><a href="#managing">5. Managing Files</a></li>
+            <li><a href="#client-files">6. Viewing Client Files</a></li>
+            <li><a href="#notifications">7. Email Notifications</a></li>
+            <li><a href="#settings">8. Plugin Settings</a></li>
+            <li><a href="#faq">9. Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="introduction">1. Introduction</h2>
+    <p>The Room35 Client Hub is a secure file sharing system that allows our team to share documents with clients and receive files from them. This guide will walk you through all the features you need to know as an employee.</p>
+
+    <h3>What Can You Do With Client Hub?</h3>
+    <ul>
+        <li><strong>Upload files</strong> for specific clients (contracts, reports, invoices)</li>
+        <li><strong>Upload global files</strong> visible to all clients (policies, forms, guides)</li>
+        <li><strong>View files</strong> that clients have uploaded to us</li>
+        <li><strong>Manage all files</strong> in one central location</li>
+        <li><strong>Track downloads</strong> to see if clients have accessed their files</li>
+    </ul>
+
+    <h3>Supported File Types</h3>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Extensions</th>
+            <th>Use For</th>
+        </tr>
+        <tr>
+            <td>Documents</td>
+            <td>PDF, DOC, DOCX</td>
+            <td>Contracts, reports, letters</td>
+        </tr>
+        <tr>
+            <td>Spreadsheets</td>
+            <td>XLS, XLSX</td>
+            <td>Financial reports, data</td>
+        </tr>
+        <tr>
+            <td>Images</td>
+            <td>JPG, PNG</td>
+            <td>Receipts, photos, scans</td>
+        </tr>
+    </table>
+
+    <div class="tip-box">
+        <strong>Tip:</strong> The maximum file size is 24MB. For larger files, consider compressing them or splitting into multiple files.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="accessing">2. Accessing the Client Hub</h2>
+
+    <h3>Finding the Client Hub in WordPress</h3>
+    <div class="step-box">
+        <p><span class="step-number">1</span> Log in to WordPress admin at <code>yoursite.com/wp-admin</code></p>
+        <p><span class="step-number">2</span> Look for <strong>"Client Hub"</strong> in the left sidebar menu</p>
+        <p><span class="step-number">3</span> Click on it to expand the submenu options</p>
+    </div>
+
+    <h3>Menu Options</h3>
+    <table>
+        <tr>
+            <th>Menu Item</th>
+            <th>What It Does</th>
+        </tr>
+        <tr>
+            <td>Dashboard</td>
+            <td>Overview of stats and recent files</td>
+        </tr>
+        <tr>
+            <td>All Files</td>
+            <td>Complete list of all files in the system</td>
+        </tr>
+        <tr>
+            <td>Upload File</td>
+            <td>Upload a new file for a client</td>
+        </tr>
+        <tr>
+            <td>Client Files</td>
+            <td>View files organized by client</td>
+        </tr>
+        <tr>
+            <td>Settings</td>
+            <td>Configure plugin options</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 id="dashboard">3. Understanding the Dashboard</h2>
+    <p>The Dashboard gives you a quick overview of the Client Hub activity.</p>
+
+    <h3>Stats Cards</h3>
+    <p>At the top of the dashboard, you'll see five stat cards:</p>
+    <ul>
+        <li><strong>Total Files</strong> - All files in the system</li>
+        <li><strong>Total Clients</strong> - Number of registered clients</li>
+        <li><strong>Admin Uploads</strong> - Files uploaded by staff</li>
+        <li><strong>Client Uploads</strong> - Files uploaded by clients</li>
+        <li><strong>Global Files</strong> - Files shared with all clients</li>
+    </ul>
+
+    <h3>Recent Files Table</h3>
+    <p>Below the stats, you'll see the 10 most recently uploaded files. This table shows:</p>
+    <ul>
+        <li>File name and size</li>
+        <li>Which client it's assigned to (or "Global")</li>
+        <li>Whether it was uploaded by Admin or Client</li>
+        <li>Upload date</li>
+        <li>Quick action buttons to View or Download</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2 id="uploading">4. Uploading Files for Clients</h2>
+    <p>This is the most common task you'll perform. Here's how to upload a file:</p>
+
+    <div class="step-box">
+        <p><span class="step-number">1</span> Go to <strong>Client Hub → Upload File</strong></p>
+        <p><span class="step-number">2</span> <strong>Select your file:</strong><br>
+        Either drag and drop a file onto the upload area, or click to browse your computer.</p>
+        <p><span class="step-number">3</span> <strong>Choose who to assign it to:</strong></p>
+        <ul>
+            <li><strong>Specific Client</strong> - Select this, then choose the client from the dropdown</li>
+            <li><strong>All Clients (Global)</strong> - Select this to make the file visible to everyone</li>
+        </ul>
+        <p><span class="step-number">4</span> Click the <strong>"Upload File"</strong> button</p>
+        <p><span class="step-number">5</span> Wait for the upload to complete (you'll see a progress bar)</p>
+    </div>
+
+    <h3>When to Use Global Files</h3>
+    <p>Upload as a <strong>Global File</strong> when the document applies to all clients:</p>
+    <ul>
+        <li>Company policies</li>
+        <li>General forms and templates</li>
+        <li>Service guides</li>
+        <li>Terms and conditions</li>
+        <li>FAQ documents</li>
+    </ul>
+
+    <div class="warning-box">
+        <strong>Important:</strong> When you upload a file for a specific client, they will automatically receive an email notification letting them know a new file is available.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="managing">5. Managing Files</h2>
+
+    <h3>Viewing All Files</h3>
+    <p>Go to <strong>Client Hub → All Files</strong> to see every file in the system.</p>
+
+    <h4>Table Columns</h4>
+    <table>
+        <tr>
+            <th>Column</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>File Name</td>
+            <td>Click to view/download the file</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>File extension (PDF, DOC, etc.)</td>
+        </tr>
+        <tr>
+            <td>Size</td>
+            <td>File size in KB or MB</td>
+        </tr>
+        <tr>
+            <td>Client</td>
+            <td>Who it's assigned to, or "Global"</td>
+        </tr>
+        <tr>
+            <td>Uploaded By</td>
+            <td>The person who uploaded it</td>
+        </tr>
+        <tr>
+            <td>Source</td>
+            <td>"Admin" or "Client"</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>When it was uploaded</td>
+        </tr>
+        <tr>
+            <td>Actions</td>
+            <td>View, Download, Delete buttons</td>
+        </tr>
+    </table>
+
+    <h3>Filtering Files</h3>
+    <p>Use the dropdown filters at the top of the table:</p>
+    <ul>
+        <li><strong>All Clients</strong> - Filter by a specific client or show global files only</li>
+        <li><strong>All Sources</strong> - Show only Admin uploads or Client uploads</li>
+        <li><strong>Search</strong> - Type a filename to search</li>
+    </ul>
+
+    <h3>Deleting Files</h3>
+    <div class="step-box">
+        <p><span class="step-number">1</span> Find the file in the list</p>
+        <p><span class="step-number">2</span> Click the <strong>trash icon</strong> in the Actions column</p>
+        <p><span class="step-number">3</span> Confirm the deletion when prompted</p>
+    </div>
+
+    <div class="warning-box">
+        <strong>Warning:</strong> Deleted files cannot be recovered. Make sure you have a backup if needed.
+    </div>
+
+    <h3>Bulk Delete</h3>
+    <p>To delete multiple files at once:</p>
+    <ol>
+        <li>Check the boxes next to the files you want to delete</li>
+        <li>Select "Delete" from the Bulk Actions dropdown</li>
+        <li>Click "Apply"</li>
+    </ol>
+
+    <div class="page-break"></div>
+
+    <h2 id="client-files">6. Viewing Client Files</h2>
+    <p>The <strong>Client Files</strong> page lets you view all files for a specific client in one place.</p>
+
+    <div class="step-box">
+        <p><span class="step-number">1</span> Go to <strong>Client Hub → Client Files</strong></p>
+        <p><span class="step-number">2</span> Select a client from the dropdown menu</p>
+        <p><span class="step-number">3</span> You'll see two sections:</p>
+        <ul>
+            <li><strong>Files Shared With Client</strong> - Documents you've sent them</li>
+            <li><strong>Files Uploaded By Client</strong> - Documents they've sent you</li>
+        </ul>
+    </div>
+
+    <h3>What to Look For in Client Uploads</h3>
+    <p>When clients upload files, check:</p>
+    <ul>
+        <li>The file name - does it match what you requested?</li>
+        <li>The file type - is it in the correct format?</li>
+        <li>The date - is it recent or outdated?</li>
+    </ul>
+
+    <div class="tip-box">
+        <strong>Tip:</strong> You can use the download count to see if a client has accessed a file you shared with them. If it shows "0" downloads, they may not have viewed it yet.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="notifications">7. Email Notifications</h2>
+    <p>The Client Hub automatically sends email notifications to keep everyone informed.</p>
+
+    <h3>When Clients Get Notified</h3>
+    <p>Clients receive an email when:</p>
+    <ul>
+        <li>You upload a file specifically for them</li>
+    </ul>
+    <p>The email includes:</p>
+    <ul>
+        <li>The file name</li>
+        <li>Upload date</li>
+        <li>A button to view their dashboard</li>
+    </ul>
+
+    <h3>When You Get Notified</h3>
+    <p>Admin receives an email (sent to joshua@roomthirtyfive.com) when:</p>
+    <ul>
+        <li>Any client uploads a file</li>
+    </ul>
+    <p>The email includes:</p>
+    <ul>
+        <li>Client name and email</li>
+        <li>File name and size</li>
+        <li>Upload date and time</li>
+        <li>A button to view in the admin dashboard</li>
+    </ul>
+
+    <div class="tip-box">
+        <strong>Tip:</strong> If you're not receiving notifications, check your spam folder or ask the administrator to verify the email settings.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2 id="settings">8. Plugin Settings</h2>
+    <p>Go to <strong>Client Hub → Settings</strong> to configure the plugin (admin only).</p>
+
+    <h3>Available Settings</h3>
+    <table>
+        <tr>
+            <th>Setting</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+        <tr>
+            <td>Maximum File Size</td>
+            <td>Largest file clients can upload (in MB)</td>
+            <td>24 MB</td>
+        </tr>
+        <tr>
+            <td>Allowed File Types</td>
+            <td>Which file extensions are accepted</td>
+            <td>pdf,doc,docx,xls,xlsx,jpg,png</td>
+        </tr>
+        <tr>
+            <td>Enable Notifications</td>
+            <td>Turn email notifications on/off</td>
+            <td>On</td>
+        </tr>
+        <tr>
+            <td>Admin Email</td>
+            <td>Where admin notifications are sent</td>
+            <td>joshua@roomthirtyfive.com</td>
+        </tr>
+        <tr>
+            <td>Email From Name</td>
+            <td>Name shown in email "From" field</td>
+            <td>Site name</td>
+        </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2 id="faq">9. Frequently Asked Questions</h2>
+
+    <h3>Q: A client says they can't see their file. What should I check?</h3>
+    <p><strong>A:</strong> Verify that:</p>
+    <ol>
+        <li>The file was uploaded and assigned to the correct client</li>
+        <li>The client is logged in to their account</li>
+        <li>They're looking in the "My Files" tab (not "My Uploads")</li>
+    </ol>
+
+    <h3>Q: Can clients see files assigned to other clients?</h3>
+    <p><strong>A:</strong> No. Clients can only see:</p>
+    <ul>
+        <li>Files specifically assigned to them</li>
+        <li>Global files (available to everyone)</li>
+        <li>Files they uploaded themselves</li>
+    </ul>
+
+    <h3>Q: What happens if I upload a file to the wrong client?</h3>
+    <p><strong>A:</strong> Delete the file and upload it again to the correct client. Unfortunately, you cannot reassign files after upload.</p>
+
+    <h3>Q: Can I edit a file after uploading?</h3>
+    <p><strong>A:</strong> No. You need to delete the old file and upload the updated version.</p>
+
+    <h3>Q: How do I know if a client has downloaded their file?</h3>
+    <p><strong>A:</strong> Check the download count in Client Files or All Files view. Each time someone downloads a file, the count increases.</p>
+
+    <h3>Q: What's the difference between "View" and "Download"?</h3>
+    <p><strong>A:</strong></p>
+    <ul>
+        <li><strong>View</strong> - Opens the file in the browser (works for PDFs and images)</li>
+        <li><strong>Download</strong> - Downloads the file to your computer</li>
+    </ul>
+
+    <h3>Q: Who can access the Client Hub admin area?</h3>
+    <p><strong>A:</strong> Only users with Administrator role can access the admin features. Clients only see the frontend dashboard.</p>
+
+    <hr style="margin: 40px 0;">
+
+    <p style="text-align: center; color: #888;">
+        <strong>Room35 Client Hub v1.0</strong><br>
+        For questions or support, contact your administrator.
+    </p>
+</body>
+</html>
